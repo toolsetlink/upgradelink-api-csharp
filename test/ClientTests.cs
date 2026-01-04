@@ -53,6 +53,10 @@ namespace UpgradeLinkApi.Tests
                 Console.WriteLine($"  DevModelKey: {request.DevModelKey}");
                 Console.WriteLine($"  DevKey: {request.DevKey}");
                 
+                // 序列化请求体并打印
+                string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                Console.WriteLine($"序列化后的请求体: {bodyStr}");
+                
                 var response = _client.WinUpgrade(request);
                 Console.WriteLine("请求成功!");
                 Console.WriteLine($"响应代码: {response.Code}");
