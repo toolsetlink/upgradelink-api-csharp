@@ -45,9 +45,11 @@ namespace ToolsetLink.UpgradeLinkApi
         public UrlUpgradeResponse UrlUpgrade(UrlUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
+                {"retry", null},
+                {"backoff", null}
                 // 10s 的过期时间
             };
 
@@ -129,7 +131,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<UrlUpgradeResponse> UrlUpgradeAsync(UrlUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -213,7 +215,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public UrlVersionResponse UrlVersion(UrlVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -297,7 +299,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<UrlVersionResponse> UrlVersionAsync(UrlVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -381,7 +383,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public FileUpgradeResponse FileUpgrade(FileUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -465,7 +467,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<FileUpgradeResponse> FileUpgradeAsync(FileUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -549,7 +551,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public FileVersionResponse FileVersion(FileVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -633,7 +635,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<FileVersionResponse> FileVersionAsync(FileVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -717,7 +719,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public ApkUpgradeResponse ApkUpgrade(ApkUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -801,7 +803,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<ApkUpgradeResponse> ApkUpgradeAsync(ApkUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -885,7 +887,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public ApkVersionResponse ApkVersion(ApkVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -969,7 +971,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<ApkVersionResponse> ApkVersionAsync(ApkVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1053,7 +1055,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public ConfigurationUpgradeResponse ConfigurationUpgrade(ConfigurationUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1137,7 +1139,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<ConfigurationUpgradeResponse> ConfigurationUpgradeAsync(ConfigurationUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1221,7 +1223,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public ConfigurationVersionResponse ConfigurationVersion(ConfigurationVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1305,7 +1307,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<ConfigurationVersionResponse> ConfigurationVersionAsync(ConfigurationVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1389,7 +1391,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public TauriVersionResponse TauriVersion(TauriVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1473,7 +1475,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<TauriVersionResponse> TauriVersionAsync(TauriVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1557,7 +1559,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public ElectronVersionResponse ElectronVersion(ElectronVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1641,7 +1643,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<ElectronVersionResponse> ElectronVersionAsync(ElectronVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1725,7 +1727,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public LnxUpgradeResponse LnxUpgrade(LnxUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1809,7 +1811,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<LnxUpgradeResponse> LnxUpgradeAsync(LnxUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1893,7 +1895,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public LnxVersionResponse LnxVersion(LnxVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1977,7 +1979,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<LnxVersionResponse> LnxVersionAsync(LnxVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -2061,9 +2063,11 @@ namespace ToolsetLink.UpgradeLinkApi
         public WinUpgradeResponse WinUpgrade(WinUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
+                {"retry", null},
+                {"backoff", null}
                 // 10s 的过期时间
             };
 
@@ -2145,9 +2149,11 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<WinUpgradeResponse> WinUpgradeAsync(WinUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
+                {"retry", null},
+                {"backoff", null}
                 // 10s 的过期时间
             };
 
@@ -2229,9 +2235,11 @@ namespace ToolsetLink.UpgradeLinkApi
         public WinVersionResponse WinVersion(WinVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
+                {"retry", null},
+                {"backoff", null}
                 // 10s 的过期时间
             };
 
@@ -2313,9 +2321,11 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<WinVersionResponse> WinVersionAsync(WinVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
+                {"retry", null},
+                {"backoff", null}
                 // 10s 的过期时间
             };
 
@@ -2397,7 +2407,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public MacUpgradeResponse MacUpgrade(MacUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -2481,7 +2491,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<MacUpgradeResponse> MacUpgradeAsync(MacUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -2565,7 +2575,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public MacVersionResponse MacVersion(MacVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -2649,7 +2659,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<MacVersionResponse> MacVersionAsync(MacVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -2733,7 +2743,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public AppReportResponse AppReport(AppReportRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -2817,7 +2827,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<AppReportResponse> AppReportAsync(AppReportRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -2901,7 +2911,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public AppStatisticsInfoResponse AppStatisticsInfo(AppStatisticsInfoRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -2989,7 +2999,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<AppStatisticsInfoResponse> AppStatisticsInfoAsync(AppStatisticsInfoRequest request)
         {
             request.Validate();
-            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
+            Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间

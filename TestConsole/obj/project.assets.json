@@ -1,0 +1,229 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "AlibabaCloud.TeaUtil/0.1.19": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "Tea": "1.0.11"
+        },
+        "compile": {
+          "lib/netstandard2.0/AlibabaCloud.TeaUtil.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AlibabaCloud.TeaUtil.dll": {}
+        }
+      },
+      "Newtonsoft.Json/13.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Tea/1.0.11": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Tea.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Tea.dll": {}
+        }
+      },
+      "ToolsetLink.DarabonbaBaseCSharp/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Tea": "1.0.11"
+        },
+        "compile": {
+          "lib/netstandard2.0/ToolsetLink.DarabonbaBaseCSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/ToolsetLink.DarabonbaBaseCSharp.dll": {}
+        }
+      },
+      "ToolsetLink.UpgradeLinkApi/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "AlibabaCloud.TeaUtil": "0.1.19",
+          "Tea": "1.0.11",
+          "ToolsetLink.DarabonbaBaseCSharp": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ToolsetLink.UpgradeLinkApi.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ToolsetLink.UpgradeLinkApi.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AlibabaCloud.TeaUtil/0.1.19": {
+      "sha512": "gjPboQEC3rSuS/8Ohk4VAw42W54h9NfIZxn4JIuWfoIF3k3mZxVdMJdKKOgIkNrx8YaLOthPSM3Pfb1zfOyFcw==",
+      "type": "package",
+      "path": "alibabacloud.teautil/0.1.19",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "alibabacloud.teautil.0.1.19.nupkg.sha512",
+        "alibabacloud.teautil.nuspec",
+        "lib/net45/AlibabaCloud.TeaUtil.dll",
+        "lib/netstandard2.0/AlibabaCloud.TeaUtil.dll"
+      ]
+    },
+    "Newtonsoft.Json/13.0.3": {
+      "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/net6.0/Newtonsoft.Json.dll",
+        "lib/net6.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "Tea/1.0.11": {
+      "sha512": "EQY+QkJpY8YaYVPd7VFHfQ4mEyYlXsF7oI6p9QCu16sjYVk8yqPr9meHwdAE6AB/0snQ+fk6VeaXSoelLwcHYQ==",
+      "type": "package",
+      "path": "tea/1.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Tea.dll",
+        "lib/netstandard2.0/Tea.dll",
+        "tea.1.0.11.nupkg.sha512",
+        "tea.nuspec"
+      ]
+    },
+    "ToolsetLink.DarabonbaBaseCSharp/1.0.0": {
+      "sha512": "PGrh8DFfpbbKQ88ajERTMZ2lyCwK5Qo0+/BLcjMdf70Gdaea/Bq0Wsn9syocG/GQgbd7s9G9zrmPh3h6hMK9CQ==",
+      "type": "package",
+      "path": "toolsetlink.darabonbabasecsharp/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/ToolsetLink.DarabonbaBaseCSharp.dll",
+        "lib/netstandard2.0/ToolsetLink.DarabonbaBaseCSharp.dll",
+        "toolsetlink.darabonbabasecsharp.1.0.0.nupkg.sha512",
+        "toolsetlink.darabonbabasecsharp.nuspec"
+      ]
+    },
+    "ToolsetLink.UpgradeLinkApi/1.0.0": {
+      "type": "project",
+      "path": "../core/upgradeLinkApiCSharp.csproj",
+      "msbuildProject": "../core/upgradeLinkApiCSharp.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "ToolsetLink.UpgradeLinkApi >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/Users/songang/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/songang/LinkProjects/open/upgradelink-api-csharp/TestConsole/TestConsole.csproj",
+      "projectName": "TestConsole",
+      "projectPath": "/Users/songang/LinkProjects/open/upgradelink-api-csharp/TestConsole/TestConsole.csproj",
+      "packagesPath": "/Users/songang/.nuget/packages/",
+      "outputPath": "/Users/songang/LinkProjects/open/upgradelink-api-csharp/TestConsole/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/songang/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "projectReferences": {
+            "/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/upgradeLinkApiCSharp.csproj": {
+              "projectPath": "/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/upgradeLinkApiCSharp.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.1.10, 3.1.10]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.osx-x64",
+            "version": "[3.1.32, 3.1.32]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          }
+        ],
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.416/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

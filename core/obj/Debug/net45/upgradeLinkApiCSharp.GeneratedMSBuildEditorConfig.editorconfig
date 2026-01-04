@@ -1,0 +1,5 @@
+is_global = true
+build_property.RootNamespace = ToolsetLink.UpgradeLinkApi
+build_property.ProjectDir = /Users/songang/LinkProjects/open/upgradelink-api-csharp/core/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
