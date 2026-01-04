@@ -1,0 +1,197 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/songang/LinkProjects/open/upgradelink-api-csharp/test/upgradeLinkApiCSharpTest.csproj": {}
+  },
+  "projects": {
+    "/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/upgradeLinkApiCSharp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/upgradeLinkApiCSharp.csproj",
+        "projectName": "ToolsetLink.UpgradeLinkApi",
+        "projectPath": "/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/upgradeLinkApiCSharp.csproj",
+        "packagesPath": "/Users/songang/.nuget/packages/",
+        "outputPath": "/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/obj/",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "configFilePaths": [
+          "/Users/songang/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net45",
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net45": {
+            "targetAlias": "net45",
+            "projectReferences": {}
+          },
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net45": {
+          "targetAlias": "net45",
+          "dependencies": {
+            "AlibabaCloud.TeaUtil": {
+              "target": "Package",
+              "version": "[0.1.19, )"
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0-preview.2, )"
+            },
+            "Tea": {
+              "target": "Package",
+              "version": "[1.0.11, )"
+            },
+            "ToolsetLink.DarabonbaBaseCSharp": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.416/RuntimeIdentifierGraph.json"
+        },
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "AlibabaCloud.TeaUtil": {
+              "target": "Package",
+              "version": "[0.1.19, )"
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0-preview.2, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Tea": {
+              "target": "Package",
+              "version": "[1.0.11, )"
+            },
+            "ToolsetLink.DarabonbaBaseCSharp": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.416/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/songang/LinkProjects/open/upgradelink-api-csharp/test/upgradeLinkApiCSharpTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/songang/LinkProjects/open/upgradelink-api-csharp/test/upgradeLinkApiCSharpTest.csproj",
+        "projectName": "upgradeLinkApiCSharpTest",
+        "projectPath": "/Users/songang/LinkProjects/open/upgradelink-api-csharp/test/upgradeLinkApiCSharpTest.csproj",
+        "packagesPath": "/Users/songang/.nuget/packages/",
+        "outputPath": "/Users/songang/LinkProjects/open/upgradelink-api-csharp/test/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/songang/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/upgradeLinkApiCSharp.csproj": {
+                "projectPath": "/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/upgradeLinkApiCSharp.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.8.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.3, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.416/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
