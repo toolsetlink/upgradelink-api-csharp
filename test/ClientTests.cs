@@ -47,7 +47,7 @@ namespace UpgradeLinkApi.Tests
             _config = new Config
             {
                 AccessKey = "mui2W50H1j-OC4xD6PgQag",
-                AccessSecret = "3603437250c2df51fc46426ac79d8995",
+                AccessSecret = "PEbdHFGC0uO_Pch7XWBQTMsFRxKPQAM2565eP8LJ3gc",
                 Protocol = "HTTP",
                 Endpoint = "127.0.0.1:8888"
             };
@@ -231,7 +231,7 @@ namespace UpgradeLinkApi.Tests
             // Arrange
             var request = new AppStatisticsInfoRequest
             {
-                AppKey = "npJi367lttpwmD1goZ1yOQ",
+                AppKey = "kPUtUMDIjBhS48q5771pow",
             };
 
             // Act
