@@ -4,11 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using System.Threading.Tasks;
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 using Tea;
 using Tea.Utils;
@@ -23,38 +19,6 @@ namespace ToolsetLink.UpgradeLinkApi
         protected string _accessSecret;
         protected string _protocol;
         protected string _endpoint;
-        
-        // 自定义JSON契约解析器，用于处理[NameInMap]属性
-        private class NameInMapContractResolver : DefaultContractResolver
-        {
-            protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
-            {
-                JsonProperty property = base.CreateProperty(member, memberSerialization);
-                
-                // 查找NameInMap属性
-                var nameInMapAttribute = member.GetCustomAttribute(typeof(Tea.NameInMapAttribute)) as Tea.NameInMapAttribute;
-                if (nameInMapAttribute != null)
-                {
-                    // 使用NameInMap属性的值作为JSON字段名
-                    property.PropertyName = nameInMapAttribute.Name;
-                }
-                
-                return property;
-            }
-        }
-        
-        // 自定义JSON序列化配置
-        private static readonly JsonSerializerSettings _jsonSettings = new JsonSerializerSettings
-        {
-            ContractResolver = new NameInMapContractResolver(),
-            NullValueHandling = NullValueHandling.Ignore
-        };
-        
-        // 自定义序列化方法
-        private string ToJSONString(object obj)
-        {
-            return JsonConvert.SerializeObject(obj, _jsonSettings);
-        }
 
         public Client(Config config)
         {
@@ -81,11 +45,9 @@ namespace ToolsetLink.UpgradeLinkApi
         public UrlUpgradeResponse UrlUpgrade(UrlUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
-                {"retry", null},
-                {"backoff", null}
                 // 10s 的过期时间
             };
 
@@ -108,7 +70,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -167,7 +129,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<UrlUpgradeResponse> UrlUpgradeAsync(UrlUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -192,7 +154,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -251,7 +213,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public UrlVersionResponse UrlVersion(UrlVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -276,7 +238,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -335,7 +297,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<UrlVersionResponse> UrlVersionAsync(UrlVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -360,7 +322,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -419,7 +381,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public FileUpgradeResponse FileUpgrade(FileUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -444,7 +406,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -503,7 +465,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<FileUpgradeResponse> FileUpgradeAsync(FileUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -528,7 +490,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -587,7 +549,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public FileVersionResponse FileVersion(FileVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -612,7 +574,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -671,7 +633,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<FileVersionResponse> FileVersionAsync(FileVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -696,7 +658,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -755,7 +717,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public ApkUpgradeResponse ApkUpgrade(ApkUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -780,7 +742,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -839,7 +801,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<ApkUpgradeResponse> ApkUpgradeAsync(ApkUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -864,7 +826,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -923,7 +885,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public ApkVersionResponse ApkVersion(ApkVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -948,7 +910,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1007,7 +969,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<ApkVersionResponse> ApkVersionAsync(ApkVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1032,7 +994,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1091,7 +1053,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public ConfigurationUpgradeResponse ConfigurationUpgrade(ConfigurationUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1116,7 +1078,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1175,7 +1137,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<ConfigurationUpgradeResponse> ConfigurationUpgradeAsync(ConfigurationUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1200,7 +1162,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1259,7 +1221,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public ConfigurationVersionResponse ConfigurationVersion(ConfigurationVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1284,7 +1246,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1343,7 +1305,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<ConfigurationVersionResponse> ConfigurationVersionAsync(ConfigurationVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1368,7 +1330,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1427,7 +1389,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public TauriVersionResponse TauriVersion(TauriVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1452,7 +1414,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1511,7 +1473,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<TauriVersionResponse> TauriVersionAsync(TauriVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1536,7 +1498,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1595,7 +1557,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public ElectronVersionResponse ElectronVersion(ElectronVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1620,7 +1582,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1679,7 +1641,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<ElectronVersionResponse> ElectronVersionAsync(ElectronVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1704,7 +1666,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1763,7 +1725,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public LnxUpgradeResponse LnxUpgrade(LnxUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1788,7 +1750,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1847,7 +1809,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<LnxUpgradeResponse> LnxUpgradeAsync(LnxUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1872,7 +1834,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1931,7 +1893,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public LnxVersionResponse LnxVersion(LnxVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -1956,7 +1918,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2015,7 +1977,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<LnxVersionResponse> LnxVersionAsync(LnxVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -2040,7 +2002,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2099,11 +2061,9 @@ namespace ToolsetLink.UpgradeLinkApi
         public WinUpgradeResponse WinUpgrade(WinUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
-                {"retry", null},
-                {"backoff", null}
                 // 10s 的过期时间
             };
 
@@ -2126,12 +2086,10 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
-                    // string timestamp = "2026-01-05T04:34:34Z";
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
-                    // string nonce = "7a3c73baac7fe403";
                     string uri = "/v1/win/upgrade";
                     string accessKey = _accessKey;
                     string accessSecret = _accessSecret;
@@ -2187,11 +2145,9 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<WinUpgradeResponse> WinUpgradeAsync(WinUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
-                {"retry", null},
-                {"backoff", null}
                 // 10s 的过期时间
             };
 
@@ -2214,14 +2170,13 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
                     string uri = "/v1/win/upgrade";
                     string accessKey = _accessKey;
                     string accessSecret = _accessSecret;
-                    
                     // 生成签名
                     string signature = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateSignature(bodyStr, nonce, accessSecret, timestamp, uri);
                     request_.Protocol = _protocol;
@@ -2274,11 +2229,9 @@ namespace ToolsetLink.UpgradeLinkApi
         public WinVersionResponse WinVersion(WinVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
-                {"retry", null},
-                {"backoff", null}
                 // 10s 的过期时间
             };
 
@@ -2301,7 +2254,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2360,11 +2313,9 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<WinVersionResponse> WinVersionAsync(WinVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
-                {"retry", null},
-                {"backoff", null}
                 // 10s 的过期时间
             };
 
@@ -2387,7 +2338,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2446,7 +2397,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public MacUpgradeResponse MacUpgrade(MacUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -2471,7 +2422,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2530,7 +2481,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<MacUpgradeResponse> MacUpgradeAsync(MacUpgradeRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -2555,7 +2506,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2614,7 +2565,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public MacVersionResponse MacVersion(MacVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -2639,7 +2590,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2698,7 +2649,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<MacVersionResponse> MacVersionAsync(MacVersionRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -2723,7 +2674,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2782,7 +2733,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public AppReportResponse AppReport(AppReportRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -2807,7 +2758,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2866,7 +2817,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<AppReportResponse> AppReportAsync(AppReportRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
@@ -2891,7 +2842,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = ToJSONString(request);
+                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2950,11 +2901,9 @@ namespace ToolsetLink.UpgradeLinkApi
         public AppStatisticsInfoResponse AppStatisticsInfo(AppStatisticsInfoRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
-                {"retry", null},
-                {"backoff", null}
                 // 10s 的过期时间
             };
 
@@ -3040,7 +2989,7 @@ namespace ToolsetLink.UpgradeLinkApi
         public async Task<AppStatisticsInfoResponse> AppStatisticsInfoAsync(AppStatisticsInfoRequest request)
         {
             request.Validate();
-            Dictionary<string, object> runtime_ = new Dictionary<string, object>
+            Dictionary<string, int?> runtime_ = new Dictionary<string, int?>
             {
                 {"timeout", 10000},
                 // 10s 的过期时间
