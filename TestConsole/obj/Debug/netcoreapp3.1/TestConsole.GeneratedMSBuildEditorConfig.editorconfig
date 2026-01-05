@@ -1,0 +1,5 @@
+is_global = true
+build_property.RootNamespace = TestConsole
+build_property.ProjectDir = /Users/songang/LinkProjects/open/upgradelink-api-csharp/TestConsole/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

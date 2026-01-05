@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "vws62UwLu6o=",
+  "success": true,
+  "projectFilePath": "/Users/songang/LinkProjects/open/upgradelink-api-csharp/TestDarabonbaBase.csproj",
+  "expectedPackageFiles": [
+    "/Users/songang/.nuget/packages/tea/1.0.11/tea.1.0.11.nupkg.sha512",
+    "/Users/songang/.nuget/packages/toolsetlink.darabonbabasecsharp/1.0.2/toolsetlink.darabonbabasecsharp.1.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

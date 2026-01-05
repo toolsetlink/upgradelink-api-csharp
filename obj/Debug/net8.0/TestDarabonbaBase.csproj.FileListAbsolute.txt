@@ -1,0 +1,6 @@
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/obj/Debug/net8.0/TestDarabonbaBase.csproj.AssemblyReference.cache
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/obj/Debug/net8.0/TestDarabonbaBase.GeneratedMSBuildEditorConfig.editorconfig
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/obj/Debug/net8.0/TestDarabonbaBase.AssemblyInfoInputs.cache
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/obj/Debug/net8.0/TestDarabonbaBase.AssemblyInfo.cs
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/obj/Debug/net8.0/TestDarabonbaBase.csproj.CoreCompileInputs.cache
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/obj/Debug/net8.0/TestDarabonbaBase.sourcelink.json

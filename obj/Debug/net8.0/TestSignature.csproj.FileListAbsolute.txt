@@ -1,0 +1,6 @@
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/obj/Debug/net8.0/TestSignature.csproj.AssemblyReference.cache
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/obj/Debug/net8.0/TestSignature.GeneratedMSBuildEditorConfig.editorconfig
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/obj/Debug/net8.0/TestSignature.AssemblyInfoInputs.cache
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/obj/Debug/net8.0/TestSignature.AssemblyInfo.cs
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/obj/Debug/net8.0/TestSignature.csproj.CoreCompileInputs.cache
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/obj/Debug/net8.0/TestSignature.sourcelink.json

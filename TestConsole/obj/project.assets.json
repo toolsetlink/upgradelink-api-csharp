@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
+    "net8.0": {
       "AlibabaCloud.TeaUtil/0.1.19": {
         "type": "package",
         "dependencies": {
@@ -18,12 +18,12 @@
       "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
             "related": ".xml"
           }
         }
@@ -37,7 +37,7 @@
           "lib/netstandard2.0/Tea.dll": {}
         }
       },
-      "ToolsetLink.DarabonbaBaseCSharp/1.0.0": {
+      "ToolsetLink.DarabonbaBaseCSharp/1.0.2": {
         "type": "package",
         "dependencies": {
           "Tea": "1.0.11"
@@ -54,8 +54,9 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "AlibabaCloud.TeaUtil": "0.1.19",
+          "Newtonsoft.Json": "13.0.3",
           "Tea": "1.0.11",
-          "ToolsetLink.DarabonbaBaseCSharp": "1.0.0"
+          "ToolsetLink.DarabonbaBaseCSharp": "1.0.2"
         },
         "compile": {
           "bin/placeholder/ToolsetLink.UpgradeLinkApi.dll": {}
@@ -123,16 +124,16 @@
         "tea.nuspec"
       ]
     },
-    "ToolsetLink.DarabonbaBaseCSharp/1.0.0": {
-      "sha512": "PGrh8DFfpbbKQ88ajERTMZ2lyCwK5Qo0+/BLcjMdf70Gdaea/Bq0Wsn9syocG/GQgbd7s9G9zrmPh3h6hMK9CQ==",
+    "ToolsetLink.DarabonbaBaseCSharp/1.0.2": {
+      "sha512": "7aHXZLSz3l0xTbEXZ8ZhDtGCloMFf3RioDA7XoG7x2ye08ubOTyLha+WAsLuHSYJpyf3U8s0qhzXIDMyeD7okw==",
       "type": "package",
-      "path": "toolsetlink.darabonbabasecsharp/1.0.0",
+      "path": "toolsetlink.darabonbabasecsharp/1.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net45/ToolsetLink.DarabonbaBaseCSharp.dll",
         "lib/netstandard2.0/ToolsetLink.DarabonbaBaseCSharp.dll",
-        "toolsetlink.darabonbabasecsharp.1.0.0.nupkg.sha512",
+        "toolsetlink.darabonbabasecsharp.1.0.2.nupkg.sha512",
         "toolsetlink.darabonbabasecsharp.nuspec"
       ]
     },
@@ -143,7 +144,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
+    "net8.0": [
       "ToolsetLink.UpgradeLinkApi >= 1.0.0"
     ]
   },
@@ -163,14 +164,14 @@
         "/Users/songang/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "netcoreapp3.1"
+        "net8.0"
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "projectReferences": {
             "/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/upgradeLinkApiCSharp.csproj": {
               "projectPath": "/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/upgradeLinkApiCSharp.csproj"
@@ -190,8 +191,8 @@
       }
     },
     "frameworks": {
-      "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
+      "net8.0": {
+        "targetAlias": "net8.0",
         "imports": [
           "net461",
           "net462",
@@ -203,26 +204,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.10, 3.1.10]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.osx-x64",
-            "version": "[3.1.32, 3.1.32]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.416/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.416/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

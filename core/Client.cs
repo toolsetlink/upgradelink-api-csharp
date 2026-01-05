@@ -2129,7 +2129,9 @@ namespace ToolsetLink.UpgradeLinkApi
                     string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
+                    // string timestamp = "2026-01-05T04:34:34Z";
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
+                    // string nonce = "7a3c73baac7fe403";
                     string uri = "/v1/win/upgrade";
                     string accessKey = _accessKey;
                     string accessSecret = _accessSecret;
