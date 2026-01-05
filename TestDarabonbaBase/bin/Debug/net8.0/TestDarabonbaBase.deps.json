@@ -1,0 +1,59 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "TestDarabonbaBase/1.0.0": {
+        "dependencies": {
+          "ToolsetLink.DarabonbaBaseCSharp": "1.0.2"
+        },
+        "runtime": {
+          "TestDarabonbaBase.dll": {}
+        }
+      },
+      "Tea/1.0.11": {
+        "runtime": {
+          "lib/netstandard2.0/Tea.dll": {
+            "assemblyVersion": "1.0.11.0",
+            "fileVersion": "1.0.11.0"
+          }
+        }
+      },
+      "ToolsetLink.DarabonbaBaseCSharp/1.0.2": {
+        "dependencies": {
+          "Tea": "1.0.11"
+        },
+        "runtime": {
+          "lib/netstandard2.0/ToolsetLink.DarabonbaBaseCSharp.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TestDarabonbaBase/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Tea/1.0.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EQY+QkJpY8YaYVPd7VFHfQ4mEyYlXsF7oI6p9QCu16sjYVk8yqPr9meHwdAE6AB/0snQ+fk6VeaXSoelLwcHYQ==",
+      "path": "tea/1.0.11",
+      "hashPath": "tea.1.0.11.nupkg.sha512"
+    },
+    "ToolsetLink.DarabonbaBaseCSharp/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7aHXZLSz3l0xTbEXZ8ZhDtGCloMFf3RioDA7XoG7x2ye08ubOTyLha+WAsLuHSYJpyf3U8s0qhzXIDMyeD7okw==",
+      "path": "toolsetlink.darabonbabasecsharp/1.0.2",
+      "hashPath": "toolsetlink.darabonbabasecsharp.1.0.2.nupkg.sha512"
+    }
+  }
+}
