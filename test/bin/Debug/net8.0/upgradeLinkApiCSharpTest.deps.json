@@ -349,6 +349,7 @@
       "ToolsetLink.UpgradeLinkApi/1.0.0": {
         "dependencies": {
           "AlibabaCloud.TeaUtil": "0.1.19",
+          "Newtonsoft.Json": "13.0.3",
           "Tea": "1.0.11",
           "ToolsetLink.DarabonbaBaseCSharp": "1.0.0"
         },
