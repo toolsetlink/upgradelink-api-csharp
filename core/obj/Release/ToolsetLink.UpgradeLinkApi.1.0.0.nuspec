@@ -5,7 +5,7 @@
     <version>1.0.0</version>
     <authors>ToolsetLink, Inc</authors>
     <description>toolsetLink-upgradeLinkApiCSharp</description>
-    <repository type="git" commit="b8b1c704eaeac055bf432b24a08ac0d6e2398cb0" />
+    <repository type="git" commit="105a1a7d9b1f7e8f3eebb461df3764093747419b" />
     <dependencies>
       <group targetFramework=".NETFramework4.5">
         <dependency id="AlibabaCloud.TeaUtil" version="0.1.19" exclude="Build,Analyzers" />
