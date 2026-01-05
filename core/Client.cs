@@ -4,7 +4,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 using Tea;
 using Tea.Utils;
@@ -19,6 +23,38 @@ namespace ToolsetLink.UpgradeLinkApi
         protected string _accessSecret;
         protected string _protocol;
         protected string _endpoint;
+        
+        // 自定义JSON契约解析器，用于处理[NameInMap]属性
+        private class NameInMapContractResolver : DefaultContractResolver
+        {
+            protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
+            {
+                JsonProperty property = base.CreateProperty(member, memberSerialization);
+                
+                // 查找NameInMap属性
+                var nameInMapAttribute = member.GetCustomAttribute(typeof(Tea.NameInMapAttribute)) as Tea.NameInMapAttribute;
+                if (nameInMapAttribute != null)
+                {
+                    // 使用NameInMap属性的值作为JSON字段名
+                    property.PropertyName = nameInMapAttribute.Name;
+                }
+                
+                return property;
+            }
+        }
+        
+        // 自定义JSON序列化配置
+        private static readonly JsonSerializerSettings _jsonSettings = new JsonSerializerSettings
+        {
+            ContractResolver = new NameInMapContractResolver(),
+            NullValueHandling = NullValueHandling.Ignore
+        };
+        
+        // 自定义序列化方法
+        private string ToJSONString(object obj)
+        {
+            return JsonConvert.SerializeObject(obj, _jsonSettings);
+        }
 
         public Client(Config config)
         {
@@ -72,7 +108,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -156,7 +192,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -240,7 +276,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -324,7 +360,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -408,7 +444,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -492,7 +528,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -576,7 +612,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -660,7 +696,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -744,7 +780,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -828,7 +864,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -912,7 +948,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -996,7 +1032,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1080,7 +1116,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1164,7 +1200,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1248,7 +1284,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1332,7 +1368,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1416,7 +1452,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1500,7 +1536,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1584,7 +1620,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1668,7 +1704,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1752,7 +1788,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1836,7 +1872,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -1920,7 +1956,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2004,7 +2040,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2090,7 +2126,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2176,7 +2212,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2262,7 +2298,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2348,7 +2384,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2432,7 +2468,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2516,7 +2552,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2600,7 +2636,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2684,7 +2720,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2768,7 +2804,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
@@ -2852,7 +2888,7 @@ namespace ToolsetLink.UpgradeLinkApi
                 {
                     TeaRequest request_ = new TeaRequest();
                     // 序列化请求体
-                    string bodyStr = AlibabaCloud.TeaUtil.Common.ToJSONString(request);
+                    string bodyStr = ToJSONString(request);
                     // 生成请求参数
                     string timestamp = ToolsetLink.DarabonbaBaseCSharp.Client.TimeRFC3339();
                     string nonce = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateNonce();
