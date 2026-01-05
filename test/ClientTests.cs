@@ -48,8 +48,8 @@ namespace UpgradeLinkApi.Tests
             {
                 AccessKey = "mui2W50H1j-OC4xD6PgQag",
                 AccessSecret = "PEbdHFGC0uO_Pch7XWBQTMsFRxKPQAM2565eP8LJ3gc",
-                Protocol = "HTTP",
-                Endpoint = "127.0.0.1:8888"
+                // Protocol = "HTTP",
+                // Endpoint = "127.0.0.1:8888"
             };
             
             _client = new Client(_config);
