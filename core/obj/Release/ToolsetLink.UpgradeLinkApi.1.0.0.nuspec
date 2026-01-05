@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ToolsetLink.UpgradeLinkApi</id>
+    <version>1.0.0</version>
+    <authors>ToolsetLink, Inc</authors>
+    <description>toolsetLink-upgradeLinkApiCSharp</description>
+    <repository type="git" commit="b8b1c704eaeac055bf432b24a08ac0d6e2398cb0" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="AlibabaCloud.TeaUtil" version="0.1.19" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+        <dependency id="Tea" version="1.0.11" exclude="Build,Analyzers" />
+        <dependency id="ToolsetLink.DarabonbaBaseCSharp" version="1.0.2" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="AlibabaCloud.TeaUtil" version="0.1.19" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+        <dependency id="Tea" version="1.0.11" exclude="Build,Analyzers" />
+        <dependency id="ToolsetLink.DarabonbaBaseCSharp" version="1.0.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Configuration" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Data" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Drawing" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Net.Http" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Security" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Web" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Xml" targetFramework=".NETFramework4.5" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/bin/Release/net45/ToolsetLink.UpgradeLinkApi.dll" target="lib/net45/ToolsetLink.UpgradeLinkApi.dll" />
+    <file src="/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/bin/Release/netstandard2.0/ToolsetLink.UpgradeLinkApi.dll" target="lib/netstandard2.0/ToolsetLink.UpgradeLinkApi.dll" />
+  </files>
+</package>

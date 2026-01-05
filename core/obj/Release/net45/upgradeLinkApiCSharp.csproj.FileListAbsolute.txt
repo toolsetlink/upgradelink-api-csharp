@@ -1,0 +1,15 @@
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/bin/Release/net45/ToolsetLink.UpgradeLinkApi.dll
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/bin/Release/net45/ToolsetLink.UpgradeLinkApi.pdb
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/bin/Release/net45/AlibabaCloud.TeaUtil.dll
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/bin/Release/net45/System.Net.Http.Extensions.dll
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/bin/Release/net45/System.Net.Http.Primitives.dll
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/bin/Release/net45/Newtonsoft.Json.dll
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/bin/Release/net45/Tea.dll
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/bin/Release/net45/ToolsetLink.DarabonbaBaseCSharp.dll
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/obj/Release/net45/upgradeLinkApiCSharp.csproj.AssemblyReference.cache
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/obj/Release/net45/upgradeLinkApiCSharp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/obj/Release/net45/upgradeLinkApiCSharp.csproj.CoreCompileInputs.cache
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/obj/Release/net45/upgradeLinkApiCSharp.sourcelink.json
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/obj/Release/net45/upgradeL.3BB6FBE7.Up2Date
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/obj/Release/net45/ToolsetLink.UpgradeLinkApi.dll
+/Users/songang/LinkProjects/open/upgradelink-api-csharp/core/obj/Release/net45/ToolsetLink.UpgradeLinkApi.pdb

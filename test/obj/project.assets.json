@@ -391,7 +391,7 @@
           "lib/netstandard2.0/Tea.dll": {}
         }
       },
-      "ToolsetLink.DarabonbaBaseCSharp/1.0.1": {
+      "ToolsetLink.DarabonbaBaseCSharp/1.0.2": {
         "type": "package",
         "dependencies": {
           "Tea": "1.0.11"
@@ -410,7 +410,7 @@
           "AlibabaCloud.TeaUtil": "0.1.19",
           "Newtonsoft.Json": "13.0.3",
           "Tea": "1.0.11",
-          "ToolsetLink.DarabonbaBaseCSharp": "1.0.1"
+          "ToolsetLink.DarabonbaBaseCSharp": "1.0.2"
         },
         "compile": {
           "bin/placeholder/ToolsetLink.UpgradeLinkApi.dll": {}
@@ -969,16 +969,16 @@
         "tea.nuspec"
       ]
     },
-    "ToolsetLink.DarabonbaBaseCSharp/1.0.1": {
-      "sha512": "uQlkYI8R5LEn28zt4G+KYmfFH2+wDjzelJBz1EnavSfYNIJrInPBHaqIvd6CKfnfogmBTlGHBQ8IL13f7DpO6w==",
+    "ToolsetLink.DarabonbaBaseCSharp/1.0.2": {
+      "sha512": "7aHXZLSz3l0xTbEXZ8ZhDtGCloMFf3RioDA7XoG7x2ye08ubOTyLha+WAsLuHSYJpyf3U8s0qhzXIDMyeD7okw==",
       "type": "package",
-      "path": "toolsetlink.darabonbabasecsharp/1.0.1",
+      "path": "toolsetlink.darabonbabasecsharp/1.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net45/ToolsetLink.DarabonbaBaseCSharp.dll",
         "lib/netstandard2.0/ToolsetLink.DarabonbaBaseCSharp.dll",
-        "toolsetlink.darabonbabasecsharp.1.0.1.nupkg.sha512",
+        "toolsetlink.darabonbabasecsharp.1.0.2.nupkg.sha512",
         "toolsetlink.darabonbabasecsharp.nuspec"
       ]
     },

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "G+ng8qQWRIA=",
+  "dgSpecHash": "tcevfgjTyUU=",
   "success": true,
   "projectFilePath": "/Users/songang/LinkProjects/open/upgradelink-api-csharp/test/upgradeLinkApiCSharpTest.csproj",
   "expectedPackageFiles": [
@@ -17,7 +17,7 @@
     "/Users/songang/.nuget/packages/nunit3testadapter/4.5.0/nunit3testadapter.4.5.0.nupkg.sha512",
     "/Users/songang/.nuget/packages/system.reflection.metadata/1.6.0/system.reflection.metadata.1.6.0.nupkg.sha512",
     "/Users/songang/.nuget/packages/tea/1.0.11/tea.1.0.11.nupkg.sha512",
-    "/Users/songang/.nuget/packages/toolsetlink.darabonbabasecsharp/1.0.1/toolsetlink.darabonbabasecsharp.1.0.1.nupkg.sha512"
+    "/Users/songang/.nuget/packages/toolsetlink.darabonbabasecsharp/1.0.2/toolsetlink.darabonbabasecsharp.1.0.2.nupkg.sha512"
   ],
   "logs": []
 }

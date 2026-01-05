@@ -2219,6 +2219,7 @@ namespace ToolsetLink.UpgradeLinkApi
                     string uri = "/v1/win/upgrade";
                     string accessKey = _accessKey;
                     string accessSecret = _accessSecret;
+                    
                     // 生成签名
                     string signature = ToolsetLink.DarabonbaBaseCSharp.Client.GenerateSignature(bodyStr, nonce, accessSecret, timestamp, uri);
                     request_.Protocol = _protocol;
