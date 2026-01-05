@@ -242,11 +242,6 @@ namespace UpgradeLinkApi.Tests
                 Console.WriteLine("请求信息:");
                 Console.WriteLine($"  AppKey: {request.AppKey}");
                 
-                // 序列化请求体并打印（使用与客户端相同的自定义契约解析器）
-                string bodyStr = Newtonsoft.Json.JsonConvert.SerializeObject(request, _jsonSettings);
-                Console.WriteLine($"序列化后的请求体: {bodyStr}");
-                Console.WriteLine("注意：上面的请求体与实际请求使用的序列化格式一致");
-                
                 var response = _client.AppStatisticsInfo(request);
                 Console.WriteLine("请求成功!");
                 Console.WriteLine($"response.code: {response.Code}");

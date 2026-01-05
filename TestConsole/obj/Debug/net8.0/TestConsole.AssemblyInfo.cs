@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TestConsole")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c60c84c6d5ba0c8c36bbab91523d86510da3fac")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e02b524b17c17d2fdaa2a02c3fa91f67b16df909")]
 [assembly: System.Reflection.AssemblyProductAttribute("TestConsole")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TestConsole")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
