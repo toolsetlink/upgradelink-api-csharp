@@ -335,7 +335,7 @@
           }
         }
       },
-      "ToolsetLink.DarabonbaBaseCSharp/1.0.0": {
+      "ToolsetLink.DarabonbaBaseCSharp/1.0.1": {
         "dependencies": {
           "Tea": "1.0.11"
         },
@@ -351,7 +351,7 @@
           "AlibabaCloud.TeaUtil": "0.1.19",
           "Newtonsoft.Json": "13.0.3",
           "Tea": "1.0.11",
-          "ToolsetLink.DarabonbaBaseCSharp": "1.0.0"
+          "ToolsetLink.DarabonbaBaseCSharp": "1.0.1"
         },
         "runtime": {
           "ToolsetLink.UpgradeLinkApi.dll": {
@@ -467,12 +467,12 @@
       "path": "tea/1.0.11",
       "hashPath": "tea.1.0.11.nupkg.sha512"
     },
-    "ToolsetLink.DarabonbaBaseCSharp/1.0.0": {
+    "ToolsetLink.DarabonbaBaseCSharp/1.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-PGrh8DFfpbbKQ88ajERTMZ2lyCwK5Qo0+/BLcjMdf70Gdaea/Bq0Wsn9syocG/GQgbd7s9G9zrmPh3h6hMK9CQ==",
-      "path": "toolsetlink.darabonbabasecsharp/1.0.0",
-      "hashPath": "toolsetlink.darabonbabasecsharp.1.0.0.nupkg.sha512"
+      "sha512": "sha512-uQlkYI8R5LEn28zt4G+KYmfFH2+wDjzelJBz1EnavSfYNIJrInPBHaqIvd6CKfnfogmBTlGHBQ8IL13f7DpO6w==",
+      "path": "toolsetlink.darabonbabasecsharp/1.0.1",
+      "hashPath": "toolsetlink.darabonbabasecsharp.1.0.1.nupkg.sha512"
     },
     "ToolsetLink.UpgradeLinkApi/1.0.0": {
       "type": "project",
