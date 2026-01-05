@@ -2951,6 +2951,8 @@ namespace ToolsetLink.UpgradeLinkApi
             Dictionary<string, object> runtime_ = new Dictionary<string, object>
             {
                 {"timeout", 10000},
+                {"retry", null},
+                {"backoff", null}
                 // 10s 的过期时间
             };
 

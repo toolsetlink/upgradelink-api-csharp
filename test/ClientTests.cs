@@ -141,5 +141,165 @@ namespace UpgradeLinkApi.Tests
             // 断言：测试总是通过，因为我们只关心打印结果
             Assert.Pass("WinUpgrade请求已发送，结果已打印");
         }
+        
+        
+        [Test]
+        public void WinVersion_Should_Send_Request_And_Print_Result()
+        {
+            // Arrange
+            var request = new WinVersionRequest
+            {
+                WinKey = "npJi367lttpwmD1goZ1yOQ",
+                Arch = "x64",
+                VersionCode = 1,
+            };
+
+            // Act
+            try
+            {
+                Console.WriteLine("发送WinVersion请求...");
+                // 打印请求信息
+                Console.WriteLine("请求信息:");
+                Console.WriteLine($"  WinKey: {request.WinKey}");
+                Console.WriteLine($"  Arch: {request.Arch}");
+                Console.WriteLine($"  VersionCode: {request.VersionCode}");
+                
+                // 序列化请求体并打印（使用与客户端相同的自定义契约解析器）
+                string bodyStr = Newtonsoft.Json.JsonConvert.SerializeObject(request, _jsonSettings);
+                Console.WriteLine($"序列化后的请求体: {bodyStr}");
+                Console.WriteLine("注意：上面的请求体与实际请求使用的序列化格式一致");
+                
+                var response = _client.WinVersion(request);
+                Console.WriteLine("请求成功!");
+                Console.WriteLine($"response.code: {response.Code}");
+                Console.WriteLine($"response.msg: {response.Msg}");
+                Console.WriteLine($"response.traceId: {response.TraceId}");
+                
+                // 打印响应数据（使用与客户端相同的自定义契约解析器）
+                if (response.Data != null)
+                {
+                    Console.WriteLine($"Data: {Newtonsoft.Json.JsonConvert.SerializeObject(response.Data, _jsonSettings)}");
+                }
+            }
+            catch (Tea.TeaException ex)
+            {
+                Console.WriteLine("请求失败 - TeaException详情:");
+                Console.WriteLine($"异常消息: {ex.Message}");
+                
+                // 反射获取TeaException的内部属性
+                var properties = ex.GetType().GetProperties();
+                foreach (var property in properties)
+                {
+                    try
+                    {
+                        var value = property.GetValue(ex);
+                        Console.WriteLine($"{property.Name}: {value}");
+                    }
+                    catch (Exception)
+                    {
+                        // 忽略无法访问的属性
+                    }
+                }
+                
+                // 打印异常的Data属性
+                if (ex.Data != null)
+                {
+                    Console.WriteLine("Exception Data:");
+                    foreach (var key in ex.Data.Keys)
+                    {
+                        Console.WriteLine($"  {key}: {ex.Data[key]}");
+                    }
+                }
+                
+                Console.WriteLine($"堆栈跟踪: {ex.StackTrace}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"请求失败: {ex.Message}");
+                Console.WriteLine($"异常类型: {ex.GetType().Name}");
+                Console.WriteLine($"堆栈跟踪: {ex.StackTrace}");
+            }
+
+            // 断言：测试总是通过，因为我们只关心打印结果
+            Assert.Pass("WinVersion请求已发送，结果已打印");
+        }
+        
+        
+        [Test]
+        public void AppStatisticsInfo_Should_Send_Request_And_Print_Result()
+        {
+            // Arrange
+            var request = new AppStatisticsInfoRequest
+            {
+                AppKey = "npJi367lttpwmD1goZ1yOQ",
+            };
+
+            // Act
+            try
+            {
+                Console.WriteLine("发送AppStatisticsInfo请求...");
+                // 打印请求信息
+                Console.WriteLine("请求信息:");
+                Console.WriteLine($"  AppKey: {request.AppKey}");
+                
+                // 序列化请求体并打印（使用与客户端相同的自定义契约解析器）
+                string bodyStr = Newtonsoft.Json.JsonConvert.SerializeObject(request, _jsonSettings);
+                Console.WriteLine($"序列化后的请求体: {bodyStr}");
+                Console.WriteLine("注意：上面的请求体与实际请求使用的序列化格式一致");
+                
+                var response = _client.AppStatisticsInfo(request);
+                Console.WriteLine("请求成功!");
+                Console.WriteLine($"response.code: {response.Code}");
+                Console.WriteLine($"response.msg: {response.Msg}");
+                Console.WriteLine($"response.traceId: {response.TraceId}");
+                
+                // 打印响应数据（使用与客户端相同的自定义契约解析器）
+                if (response.Data != null)
+                {
+                    Console.WriteLine($"Data: {Newtonsoft.Json.JsonConvert.SerializeObject(response.Data, _jsonSettings)}");
+                }
+            }
+            catch (Tea.TeaException ex)
+            {
+                Console.WriteLine("请求失败 - TeaException详情:");
+                Console.WriteLine($"异常消息: {ex.Message}");
+                
+                // 反射获取TeaException的内部属性
+                var properties = ex.GetType().GetProperties();
+                foreach (var property in properties)
+                {
+                    try
+                    {
+                        var value = property.GetValue(ex);
+                        Console.WriteLine($"{property.Name}: {value}");
+                    }
+                    catch (Exception)
+                    {
+                        // 忽略无法访问的属性
+                    }
+                }
+                
+                // 打印异常的Data属性
+                if (ex.Data != null)
+                {
+                    Console.WriteLine("Exception Data:");
+                    foreach (var key in ex.Data.Keys)
+                    {
+                        Console.WriteLine($"  {key}: {ex.Data[key]}");
+                    }
+                }
+                
+                Console.WriteLine($"堆栈跟踪: {ex.StackTrace}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"请求失败: {ex.Message}");
+                Console.WriteLine($"异常类型: {ex.GetType().Name}");
+                Console.WriteLine($"堆栈跟踪: {ex.StackTrace}");
+            }
+
+            // 断言：测试总是通过，因为我们只关心打印结果
+            Assert.Pass("AppStatisticsInfo请求已发送，结果已打印");
+        }
     }
 }

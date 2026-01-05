@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("upgradeLinkApiCSharpTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8b1c704eaeac055bf432b24a08ac0d6e2398cb0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38a0625a23ccd8113f826d95d80be3f0d26c72af")]
 [assembly: System.Reflection.AssemblyProductAttribute("upgradeLinkApiCSharpTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("upgradeLinkApiCSharpTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
